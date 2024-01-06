@@ -1,10 +1,18 @@
 import React from 'react'
 import { Button, Card, CardBody, CardFooter, CardImg, CardSubtitle, CardText, CardTitle } from 'reactstrap'
 import './cardComponent.scss'
-const CardComponent = ({ productsList = [] }) => {
+import { connect } from 'react-redux'
+import { addToCartAction,removeFromCartAction } from '../../reducers/actions'
+import { useLocation } from 'react-router-dom'
 
-    const addProductToCart = (productID) => {
-        console.log(productID)
+const CardComponent = ({ productsList = [],  addToCartAction,removeFromCartAction}) => {
+    const getPath = useLocation()
+    const addProductToCart = (product) => {
+        //console.log(product)
+        addToCartAction(product)
+    }
+    const removeProductFromCart = (product) => {
+        removeFromCartAction(product)
     }
     return (
 
@@ -43,9 +51,12 @@ const CardComponent = ({ productsList = [] }) => {
                     </CardSubtitle>
                     
                     <CardFooter>
-                        <Button onClick={() => addProductToCart(item.id)}>
+                        {getPath.pathname != '/cart' && <Button onClick={() => addProductToCart(item)}>
                             Add to Cart
-                        </Button>
+                        </Button>}
+                        {getPath.pathname == '/cart' && <Button onClick={() => removeProductFromCart(item)}>
+                            Remove From Cart
+                        </Button>}
                     </CardFooter>
                 </Card>
             ))
@@ -54,5 +65,9 @@ const CardComponent = ({ productsList = [] }) => {
 
     )
 }
+const mapDispatchToProps = (dispatch) => {
+    return {addToCartAction: item => dispatch(addToCartAction(item)),
+            removeFromCartAction: item => dispatch(removeFromCartAction(item))}
+}
 
-export default CardComponent
+export default connect(null,mapDispatchToProps)(CardComponent)

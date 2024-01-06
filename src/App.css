@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.productsSection{
+  margin: 0 3rem;
+  @media (max-width: 767px) {
+    margin: 0 1rem;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.bodyWrapper{
+  margin-top: 77px;
+  @media (min-width: 768px) {
+    margin-top: 56px;
+  }
+}
+.cartWrapper{
+  @media (min-width: 1201px) {
+    margin-left: 95%;
+    position: absolute;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    margin-left: 90%;
+    position: absolute;
+  }
+}
+.navBarCustomClass{
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fff;
+}
+#nav-cart-count-container{/*#navbar.nav-flex #nav-belt .nav-right #nav-tools #nav-cart */
+  position: relative;
+  padding-bottom: 1px;
+}
+#nav-cart{
+  color: #fff;
+  background-color: #000;
+  width: 45px;
+  height: 45px;
+  font-weight: 600;
+  border-radius: 50%;
+}
+#nav-cart-count{
+  position: absolute;
+  left: 20px;
+  right: auto;
+  top: 4px;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-cart-icon{
+  background-position: -8px -330px;
+  width: 45px;
+  height: 45px;
+  background-image: url(https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB600086755_.png);
+  overflow: hidden;
+  position: absolute;
+  background-repeat: repeat-x;
 }

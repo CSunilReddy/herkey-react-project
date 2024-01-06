@@ -12,7 +12,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navigation/>
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner color="primary" type="grow"/>}>
         <div className='bodyWrapper'>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -33,9 +33,9 @@ export const makeApiCall = async (url) =>{
   }
 }
 
-export const getProductsLists = async() => {
+export const getProductsLists = async(param) => {
   try{
-    const data = await makeApiCall(allProductsApiUrl)//'https://dummyjson.com/products'
+    const data = await makeApiCall(allProductsApiUrl+'?'+param)//'https://dummyjson.com/products'
     return data.products
   } catch (ex) {
     console.log(ex.message)
